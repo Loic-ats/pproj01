@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="FILE1" class="ch.qos.logback.core.FileAppender">
+		<file>TEST.LOG</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	
+		<appender name="FILE2" class="ch.qos.logback.core.FileAppender">
+		<file>ERROR.LOG</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="junit01.diginamic.pproj01" level="WARN">
+		<appender-ref ref="FILE1" />
+	</logger>
+
+	<logger name="junit01.diginamic.pproj01" level="ERROR">
+		<appender-ref ref="FILE2" />
+	</logger>
+
+
+	<!-- regle de logs par defaut. Ici : niveau INFO vers la sortie standard -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+
+</configuration>
